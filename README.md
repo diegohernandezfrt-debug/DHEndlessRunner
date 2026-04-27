@@ -72,7 +72,7 @@ Keyboard:
 
 Playable build on itch.io:
 
-[Play DH Endless Runner Duck]([TU_LINK](https://diefrank.itch.io/dh-endless-runner-duck))
+[Play DH Endless Runner Duck](https://diefrank.itch.io/dh-endless-runner-duck)
 
 ---
 
