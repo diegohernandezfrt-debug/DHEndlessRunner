@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=3 uid="uid://bvt8nq6qdhxky"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_wdlgw"]
+[ext_resource type="Texture2D" uid="uid://qu6avn3dkfqj" path="res://assets/backgrounds/FondoMenu.jpg" id="2_k7grp"]
+[ext_resource type="Texture2D" uid="uid://dsdm761fcbjh" path="res://assets/backgrounds/DuckLeft.png" id="3_b8u81"]
+[ext_resource type="Script" path="res://scripts/left_duck.gd" id="4_adlu0"]
+[ext_resource type="Texture2D" uid="uid://duofoeqp4r6qd" path="res://assets/backgrounds/DuckRight.png" id="4_ldh54"]
+[ext_resource type="Texture2D" uid="uid://baxp7s2topxqd" path="res://assets/backgrounds/Letrero.png" id="5_2uljn"]
+[ext_resource type="Script" path="res://scripts/right_duck.gd" id="6_rfrb6"]
+[ext_resource type="Texture2D" uid="uid://bu2t0suhp83wl" path="res://assets/backgrounds/Title.png" id="6_w0xfp"]
+[ext_resource type="Texture2D" uid="uid://cc2m8ogtubpb" path="res://assets/backgrounds/BTNPlay.png" id="7_q7u0u"]
+[ext_resource type="Script" path="res://scripts/sign.gd" id="8_a2ref"]
+[ext_resource type="Texture2D" uid="uid://bk6rcfi3quxhd" path="res://assets/backgrounds/BTNWorlds.png" id="8_rn0f3"]
+[ext_resource type="Texture2D" uid="uid://33b78tqv2sfk" path="res://assets/backgrounds/BTNExit.png" id="9_xcwue"]
+[ext_resource type="Script" path="res://scripts/play_button.gd" id="10_jpl78"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wdlgw")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 1283.0
+offset_bottom = 733.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k7grp")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="LeftDuck" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 263.0
+offset_right = 933.0
+offset_bottom = 712.0
+texture = ExtResource("3_b8u81")
+stretch_mode = 4
+script = ExtResource("4_adlu0")
+
+[node name="RightDuck" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 26.0
+offset_right = 1274.0
+offset_bottom = 616.0
+texture = ExtResource("4_ldh54")
+stretch_mode = 4
+script = ExtResource("6_rfrb6")
+
+[node name="Sign" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 148.0
+offset_right = 842.0
+offset_bottom = 591.0
+texture = ExtResource("5_2uljn")
+script = ExtResource("8_a2ref")
+
+[node name="Title" type="TextureRect" parent="Sign"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -110.0
+offset_right = 432.0
+offset_bottom = 55.0
+texture = ExtResource("6_w0xfp")
+
+[node name="PlayButton" type="TextureButton" parent="Sign"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 55.0
+offset_right = 330.0
+offset_bottom = 144.0
+mouse_default_cursor_shape = 2
+script = ExtResource("10_jpl78")
+
+[node name="BtnPlay" type="Sprite2D" parent="Sign"]
+position = Vector2(202, 100)
+texture = ExtResource("7_q7u0u")
+
+[node name="WorldsButton" type="TextureButton" parent="Sign"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 160.0
+offset_right = 333.0
+offset_bottom = 252.0
+mouse_default_cursor_shape = 2
+
+[node name="BtnWorlds" type="Sprite2D" parent="Sign"]
+position = Vector2(199, 202)
+texture = ExtResource("8_rn0f3")
+
+[node name="ExitButton" type="TextureButton" parent="Sign"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 281.0
+offset_right = 332.0
+offset_bottom = 371.0
+mouse_default_cursor_shape = 2
+
+[node name="BtnExit" type="Sprite2D" parent="Sign"]
+position = Vector2(202, 329)
+texture = ExtResource("9_xcwue")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 631.0
+offset_right = 155.0
+offset_bottom = 714.0
+theme_override_font_sizes/font_size = 60
+text = "V. 1.0"
+
+[connection signal="pressed" from="Sign/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Sign/WorldsButton" to="." method="_on_worlds_button_pressed"]
+[connection signal="pressed" from="Sign/ExitButton" to="." method="_on_exit_button_pressed"]

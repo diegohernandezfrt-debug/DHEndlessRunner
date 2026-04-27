@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdevdpbhfq8xu"]
+
+[ext_resource type="Script" path="res://scripts/obstacles_aguila_2.gd" id="1_hlb10"]
+[ext_resource type="Texture2D" uid="uid://vw6brs3xl2up" path="res://assets/sprites/ObstaculosCieloAguila.png" id="2_8pyhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qk7cu"]
+size = Vector2(80, 100)
+
+[node name="ObstaclesAguila2" type="Area2D" groups=["obstacles"]]
+script = ExtResource("1_hlb10")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qk7cu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, 6)
+rotation = 3.14159
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_8pyhh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

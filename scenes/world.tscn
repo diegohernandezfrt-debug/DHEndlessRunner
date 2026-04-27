@@ -1,0 +1,103 @@
+[gd_scene load_steps=28 format=3 uid="uid://cgucf5sllwmbu"]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_6c4gb"]
+[ext_resource type="PackedScene" uid="uid://bp64p0jfplreu" path="res://scenes/Player.tscn" id="1_ewehu"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="1_ilhih"]
+[ext_resource type="Texture2D" uid="uid://s2b0va6poyxe" path="res://assets/sprites/Land.png" id="2_66pju"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="3_1hrfe"]
+[ext_resource type="Texture2D" uid="uid://dqirx8f368hb1" path="res://assets/sprites/River.png" id="3_2dx0g"]
+[ext_resource type="Texture2D" uid="uid://bicc1eoxh2kd6" path="res://assets/sprites/prueba3.png" id="4_pvw7w"]
+[ext_resource type="PackedScene" uid="uid://jgo56qjx4q4f" path="res://scenes/VidasUI.tscn" id="5_62xkw"]
+[ext_resource type="PackedScene" uid="uid://df0gsj0xi52fi" path="res://scenes/GameOverUi.tscn" id="5_ovquc"]
+[ext_resource type="PackedScene" uid="uid://ylise2pwpuy0" path="res://scenes/obstacle.tscn" id="5_tyj7s"]
+[ext_resource type="PackedScene" uid="uid://tn7s4bn23ej6" path="res://scenes/Coin.tscn" id="6_gej3b"]
+[ext_resource type="PackedScene" uid="uid://b2y5r0mhijaa5" path="res://scenes/ObstaclesArbusto.tscn" id="8_mkhd3"]
+[ext_resource type="PackedScene" uid="uid://b1m42o2m3akkf" path="res://scenes/HUB.tscn" id="8_rlyvi"]
+[ext_resource type="PackedScene" uid="uid://xvqn4gbtf3hp" path="res://scenes/WorldCompleteUI.tscn" id="9_ky1wy"]
+[ext_resource type="PackedScene" uid="uid://ce7h7qfdyjctl" path="res://scenes/ObstaclesArboles.tscn" id="9_oq51f"]
+[ext_resource type="PackedScene" uid="uid://c5cn63kpf6ili" path="res://scenes/ObstaclesRocas.tscn" id="10_d1ee5"]
+[ext_resource type="PackedScene" uid="uid://cw84i2hbg2t5t" path="res://scenes/ObstaclesAguila.tscn" id="12_7uxgt"]
+[ext_resource type="PackedScene" uid="uid://cdevdpbhfq8xu" path="res://scenes/ObstaclesAguila_2.tscn" id="13_d6f5s"]
+[ext_resource type="PackedScene" uid="uid://b5sfqb0e1qcyo" path="res://scenes/ObstaclesBuho.tscn" id="14_mg0y1"]
+[ext_resource type="PackedScene" uid="uid://eijt1044fngk" path="res://scenes/ObstaclesCuervo.tscn" id="15_ypfd1"]
+[ext_resource type="PackedScene" uid="uid://dtdlc61sojari" path="res://scenes/ObstaclesHalcon.tscn" id="16_e7ncw"]
+[ext_resource type="PackedScene" uid="uid://pbpjbe34phlp" path="res://scenes/ObstaclesLechuza.tscn" id="17_v8ue4"]
+[ext_resource type="Script" path="res://scripts/AudioManager.gd" id="23_7nscs"]
+[ext_resource type="AudioStream" uid="uid://b128xgmx4o43e" path="res://assets/audio/ForestLand.mp3" id="24_2akba"]
+[ext_resource type="AudioStream" uid="uid://lcyxlx5ebbye" path="res://assets/audio/ForestRiver.mp3" id="25_f3i0e"]
+[ext_resource type="AudioStream" uid="uid://bbu6s86ky1wep" path="res://assets/audio/ForestSky.mp3" id="26_b6bhd"]
+[ext_resource type="PackedScene" uid="uid://copx7ojrx50dq" path="res://scenes/PauseMenu.tscn" id="27_rgrmu"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_6c4gb")
+land_texture = ExtResource("2_66pju")
+river_texture = ExtResource("3_2dx0g")
+sky_texture = ExtResource("4_pvw7w")
+
+[node name="Player" parent="." instance=ExtResource("1_ewehu")]
+position = Vector2(0, 550)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 280)
+script = ExtResource("1_ilhih")
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("3_1hrfe")
+land_obstacles = Array[PackedScene]([ExtResource("5_tyj7s"), ExtResource("8_mkhd3"), ExtResource("9_oq51f")])
+river_obstacles = Array[PackedScene]([ExtResource("5_tyj7s"), ExtResource("10_d1ee5"), ExtResource("12_7uxgt")])
+sky_obstacles = Array[PackedScene]([ExtResource("12_7uxgt"), ExtResource("13_d6f5s"), ExtResource("14_mg0y1"), ExtResource("15_ypfd1"), ExtResource("16_e7ncw"), ExtResource("17_v8ue4")])
+coin_scene = ExtResource("6_gej3b")
+
+[node name="Hub" parent="." instance=ExtResource("8_rlyvi")]
+
+[node name="game_over_ui" parent="." instance=ExtResource("5_ovquc")]
+visible = false
+
+[node name="WorldCompleteUi" parent="." instance=ExtResource("9_ky1wy")]
+visible = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1, 318.9)
+scale = Vector2(0.881215, 0.740147)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1.5, 323)
+scale = Vector2(0.888812, 0.736648)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(7.49995, 321)
+scale = Vector2(0.881297, 0.740331)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_62xkw")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("23_7nscs")
+land_music = ExtResource("24_2akba")
+river_music = ExtResource("25_f3i0e")
+sky_music = ExtResource("26_b6bhd")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="AudioManager"]
+
+[node name="CanvasLayer3" parent="." instance=ExtResource("27_rgrmu")]

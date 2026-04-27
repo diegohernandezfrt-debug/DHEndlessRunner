@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://copx7ojrx50dq"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_e8k5o"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+process_mode = 2
+layer = 10
+script = ExtResource("1_e8k5o")
+
+[node name="PauseUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0117647, 0.0117647, 0.0117647, 0.192157)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 550.0
+offset_top = 173.0
+offset_right = 738.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 60
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="."]
+process_mode = 2
+offset_left = 517.0
+offset_top = 325.0
+offset_right = 762.0
+offset_bottom = 416.0
+theme_override_font_sizes/font_size = 60
+text = "RESUME"
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]

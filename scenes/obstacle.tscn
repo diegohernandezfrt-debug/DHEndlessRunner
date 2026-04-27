@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ylise2pwpuy0"]
+
+[ext_resource type="Script" path="res://scripts/obstacle.gd" id="1_bdlfg"]
+[ext_resource type="Texture2D" uid="uid://bqut4nt7vlakk" path="res://assets/sprites/ObstaculoTronco.png" id="2_gr4ho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qk7cu"]
+size = Vector2(80, 100)
+
+[node name="Obstacles" type="Area2D" groups=["obstacles"]]
+script = ExtResource("1_bdlfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qk7cu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.412748, 1.14202)
+rotation = -0.84823
+scale = Vector2(0.223493, 0.188725)
+texture = ExtResource("2_gr4ho")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

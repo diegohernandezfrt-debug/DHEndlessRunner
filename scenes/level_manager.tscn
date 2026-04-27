@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://2mf1bdpna7dg"]
+
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_2b1p8"]
+
+[node name="world_manager_tscn" type="Node"]
+script = ExtResource("1_2b1p8")

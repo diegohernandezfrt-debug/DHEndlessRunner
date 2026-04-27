@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1om5aosx7lum"]
+
+[ext_resource type="Script" path="res://scripts/world_select.gd" id="1_3vjgt"]
+
+[node name="WorldSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3vjgt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 2.0
+offset_right = 1283.0
+offset_bottom = 721.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LandButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "LAND"
+
+[node name="RiverButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "RIVER"
+
+[node name="SkyButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "SKY"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "BACK"
+
+[connection signal="pressed" from="VBoxContainer/LandButton" to="." method="_on_land_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/RiverButton" to="." method="_on_river_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SkyButton" to="." method="_on_sky_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

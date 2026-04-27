@@ -1,0 +1,110 @@
+[gd_scene load_steps=10 format=3 uid="uid://xvqn4gbtf3hp"]
+
+[ext_resource type="Script" path="res://scripts/world_completeUI.gd" id="1_i1hh0"]
+[ext_resource type="Texture2D" uid="uid://bsfqce0obqvwg" path="res://assets/sprites/PatoWinFrame.png" id="2_5idsw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qj6x"]
+atlas = ExtResource("2_5idsw")
+region = Rect2(0, 0, 414, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1m7s"]
+atlas = ExtResource("2_5idsw")
+region = Rect2(414, 0, 414, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3nsy"]
+atlas = ExtResource("2_5idsw")
+region = Rect2(828, 0, 414, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cok5v"]
+atlas = ExtResource("2_5idsw")
+region = Rect2(1242, 0, 414, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jrf5"]
+atlas = ExtResource("2_5idsw")
+region = Rect2(0, 363, 414, 363)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyigp"]
+atlas = ExtResource("2_5idsw")
+region = Rect2(414, 363, 414, 363)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oww4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qj6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1m7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3nsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cok5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jrf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyigp")
+}],
+"loop": true,
+"name": &"win",
+"speed": 5.0
+}]
+
+[node name="WorldCompleteUi" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_i1hh0")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -46.5
+offset_right = 94.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 62
+text = "Nivel Completado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextWorldButton" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Next World"
+
+[node name="InfiniteButton" type="Button" parent="Panel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Continue World Infinite"
+
+[node name="DuckUI" type="AnimatedSprite2D" parent="."]
+position = Vector2(644, 107)
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_oww4c")
+animation = &"win"
+frame = 5
+frame_progress = 0.420498
+
+[connection signal="pressed" from="Panel/VBoxContainer/NextWorldButton" to="." method="_on_next_world_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/InfiniteButton" to="." method="_on_infinite_button_pressed"]

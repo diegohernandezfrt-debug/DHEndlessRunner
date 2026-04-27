@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://jgo56qjx4q4f"]
+
+[ext_resource type="Script" path="res://scripts/vidas_ui.gd" id="1_yyyto"]
+[ext_resource type="Texture2D" uid="uid://c48fpgoeumgyx" path="res://assets/sprites/bread_full.png" id="2_ps0ll"]
+[ext_resource type="Texture2D" uid="uid://dgillrgejyhm6" path="res://assets/sprites/bread_bite1.png" id="3_fkj7r"]
+[ext_resource type="Texture2D" uid="uid://br8al3tyvd0nw" path="res://assets/sprites/bread_bite2.png" id="4_ds8sn"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="LivesUI" type="Node2D" parent="."]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_yyyto")
+bread_full = ExtResource("2_ps0ll")
+bread_bite1 = ExtResource("3_fkj7r")
+bread_bite2 = ExtResource("4_ds8sn")
+
+[node name="Bread" type="Sprite2D" parent="LivesUI"]
+position = Vector2(2680, 140)
+texture = ExtResource("2_ps0ll")

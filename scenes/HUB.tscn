@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1m42o2m3akkf"]
+
+[ext_resource type="Script" path="res://scripts/hub.gd" id="1_dxwh5"]
+
+[node name="Hub" type="CanvasLayer"]
+script = ExtResource("1_dxwh5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CoinsLabel" type="Label" parent="Control"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 43.0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32
+
+[node name="DistanceLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 360.0
+offset_top = 20.0
+offset_right = 400.0
+offset_bottom = 65.0
+grow_horizontal = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 32

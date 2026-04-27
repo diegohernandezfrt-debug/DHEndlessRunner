@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=3 uid="uid://df0gsj0xi52fi"]
+
+[ext_resource type="Script" path="res://scripts/game_over_ui.gd" id="1_64iq8"]
+[ext_resource type="Texture2D" uid="uid://bo6u8j6uahey2" path="res://assets/sprites/PatoGameOverFrame.png" id="2_24yi3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mypy6"]
+atlas = ExtResource("2_24yi3")
+region = Rect2(0, 0, 350, 344)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25hqv"]
+atlas = ExtResource("2_24yi3")
+region = Rect2(350, 0, 350, 344)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rphp"]
+atlas = ExtResource("2_24yi3")
+region = Rect2(678, 0, 339, 344)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc03x"]
+atlas = ExtResource("2_24yi3")
+region = Rect2(1026, 0, 342, 344)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0pfa"]
+atlas = ExtResource("2_24yi3")
+region = Rect2(0, 344, 350, 344)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78uab"]
+atlas = ExtResource("2_24yi3")
+region = Rect2(350, 344, 350, 344)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0kbha"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mypy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25hqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rphp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc03x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0pfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78uab")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}]
+
+[node name="game_over_ui" type="CanvasLayer"]
+script = ExtResource("1_64iq8")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(0, 0, 0, 0.364706)
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -140.0
+offset_right = 200.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+modulate = Color(1, 1, 0, 1)
+self_modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+text = "EL PATO CHOCO"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Distancia: 000"
+horizontal_alignment = 1
+
+[node name="Reintentar" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "REINICIAR"
+
+[node name="DuckUI" type="AnimatedSprite2D" parent="."]
+position = Vector2(600, 158)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_0kbha")
+animation = &"hit"
+frame = 1
+frame_progress = 0.576718
+
+[connection signal="pressed" from="Panel/VBoxContainer/Reintentar" to="." method="_on_reintentar_pressed"]

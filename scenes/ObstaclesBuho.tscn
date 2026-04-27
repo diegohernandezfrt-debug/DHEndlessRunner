@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5sfqb0e1qcyo"]
+
+[ext_resource type="Script" path="res://scripts/obstacles_buho.gd" id="1_xak4y"]
+[ext_resource type="Texture2D" uid="uid://3ukk415325ec" path="res://assets/sprites/ObstaculosCieloBuho.png" id="2_jfcna"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qk7cu"]
+size = Vector2(80, 100)
+
+[node name="ObstaclesBuho" type="Area2D" groups=["obstacles"]]
+script = ExtResource("1_xak4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qk7cu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.90697, -0.807073)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_jfcna")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
