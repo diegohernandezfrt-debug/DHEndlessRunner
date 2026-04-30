@@ -1,78 +1,141 @@
 # 🦆 DH Endless Runner Duck
 
-A fast-paced endless runner built with Godot Engine where players guide a duck through multiple worlds while dodging obstacles, surviving as long as possible, and unlocking new environments.
+**DH Endless Runner Duck** is a cross-platform 2D endless runner developed with **Godot Engine 4.2.2** and **GDScript**, featuring progressive gameplay, unlockable worlds, persistent progression systems, and support for both **Windows PC** and **Android devices**.
 
-![Main Menu](<img width="1366" height="729" alt="Menu" src="https://github.com/user-attachments/assets/23f0745c-bdee-4d0b-9ee1-f8bf85223f22" />
-)
-
----
-
-## 🎮 Gameplay
-
-Run endlessly across unique environments:
-
-🌱 **Land** – classic obstacle dodging  
-🌊 **River** – water-themed challenges  
-☁️ **Sky** – aerial hazards and faster pacing  
-
-Survive, improve your high score, and unlock new worlds.
+Guide a brave duck through different environments, dodge incoming obstacles, survive as long as possible, and unlock new worlds as difficulty increases.
 
 ---
 
-## ✨ Features
+# 🎮 Gameplay
 
-- 3 playable worlds
-- Endless runner gameplay loop
-- Progressive difficulty scaling
-- World unlock system
-- Persistent save data
-- High score tracking
-- Pause menu
-- Game over screen
-- World completion progression
-- Custom illustrated UI
-- Original art assets
+The core gameplay is based on **3-lane endless runner mechanics**, where players must quickly react and switch lanes to avoid obstacles while continuously progressing through increasingly difficult stages.
 
----
+### Worlds
 
-## 🛠 Built With
+🌱 **Land**
+Classic runner experience with ground-based hazards.
 
-- Godot 4.2.2
-- GDScript
-- JSON Save System
-- Custom UI scenes
-- Scene-based architecture
+🌊 **River**
+Water environment with slower movement pacing and themed obstacle design.
+
+☁️ **Sky**
+Fast-paced aerial gameplay with increased speed and challenge.
 
 ---
 
-## 🧠 Technical Highlights
+# ✨ Features
 
-This project includes:
-
-- Singleton managers
-- Persistent progression system
-- State handling (pause / game over / transitions)
-- Dynamic difficulty progression
-- UI scene instancing
-- Modular world management
+✅ 3 playable worlds
+✅ Endless runner core gameplay loop
+✅ Progressive difficulty scaling
+✅ Level progression system
+✅ Unlockable worlds progression
+✅ Persistent save system (JSON)
+✅ High score tracking
+✅ Coins system
+✅ 3-life health system
+✅ Temporary invulnerability after hit
+✅ Animated character states (run / swim / fly / hit)
+✅ Pause menu
+✅ World complete screen
+✅ Game over state
+✅ Fade transitions between worlds
+✅ World-specific music system
+✅ Mobile swipe controls
+✅ Android pause touch button
+✅ Custom illustrated UI assets
 
 ---
 
-## 🎯 Controls
+# 📱 Platforms
 
-Keyboard:
+Supported platforms:
 
-- Left Arrow / A → Move left
-- Right Arrow / D → Move right
-- ESC → Pause
+* 💻 **Windows PC**
+* 📱 **Android**
+
+Distribution:
+
+* Itch.io release available
+* GitHub source available
 
 ---
 
-## 📦 Download
+# 🎯 Controls
 
-Playable build on itch.io:
+## PC
 
-[Play DH Endless Runner Duck](https://diefrank.itch.io/dh-endless-runner-duck)
+**Move Left** → `A` / `←`
+**Move Right** → `D` / `→`
+**Pause** → `ESC`
+
+## Android
+
+**Swipe Left** → Move left
+**Swipe Right** → Move right
+**Pause Button** → Pause menu
+
+---
+
+# 🛠 Built With
+
+* **Godot Engine 4.2.2**
+* **GDScript**
+* **JSON Save System**
+* **Scene-based architecture**
+* **Custom UI scenes**
+* **Singleton / Autoload managers**
+* **Cross-platform export pipeline (Windows + Android)**
+
+---
+
+# 🧠 Technical Highlights
+
+This project implements:
+
+* Modular scene architecture
+* Global singleton managers
+* Persistent progression and save system
+* Unlock / progression logic
+* State management (pause / game over / world complete)
+* Dynamic difficulty scaling
+* UI scene instancing
+* Mobile touch adaptation
+* Android APK export & signing pipeline
+* Cross-platform input support
+
+---
+
+# 📄 Documentation
+
+Full technical documentation available in:
+
+`/Documentation.pdf`
+
+Includes:
+
+* project overview
+* gameplay systems
+* architecture
+* technical challenges
+* mobile adaptation
+* roadmap
+
+---
+
+# 📦 Play / Download
+
+### Itch.io
+
+**Play / Download here:**
+[[ITCH_LINK](https://diefrank.itch.io/dh-endless-runner-duck)]
+[[ITCH LINK](https://diefrank.itch.io/dh-endless-runner-duck-mobile)]
+---
+
+# 💻 Source Code
+
+GitHub Repository:
+[[GITHUB_LINK](https://github.com/diegohernandezfrt-debug/DHEndlessRunner)]
 
 ---
 
@@ -90,19 +153,24 @@ Playable build on itch.io:
 
 <img width="1366" height="729" alt="Pause" src="https://github.com/user-attachments/assets/e304fd47-73dc-4eca-86be-a4f024d913c2" />
 
+---
+
+# 🚀 Roadmap
+
+Planned future improvements:
+
+* Shop system
+* Cosmetic skins
+* Achievements
+* More worlds
+* Audio polish
+* Online leaderboard
+* Google Play Store release
 
 ---
 
-## 🚀 Future Improvements
+# 👨‍💻 Developer
 
-- Mobile controls
-- Sound polish
-- More worlds
-- Achievements
-- Cosmetic unlocks
+Created by **Diego Hernandez**
 
----
-
-## 👨‍💻 Developer
-
-Created by Diego Hernandez
+Game Developer | Software Developer | Building interactive experiences with code.
