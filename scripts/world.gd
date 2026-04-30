@@ -13,6 +13,7 @@ extends Node2D
 @onready var audio_manager = $AudioManager
 @onready var pause_menu_scene = preload("res://scenes/PauseMenu.tscn")
 var pause_menu
+@onready var pause_button = $PauseButton
 
 @export var land_texture: Texture2D
 @export var river_texture: Texture2D
@@ -37,6 +38,8 @@ func _ready():
 
 	pause_menu = pause_menu_scene.instantiate()
 	add_child(pause_menu)
+
+	pause_button.pressed.connect(_on_pause_button_pressed)
 
 func _on_world_changed(new_world: int):
 	var texture: Texture2D = land_texture
@@ -140,3 +143,6 @@ func toggle_pause():
 		pause_menu.show_pause()
 	else:
 		pause_menu.hide_pause()
+
+func _on_pause_button_pressed():
+	toggle_pause()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cgucf5sllwmbu"]
+[gd_scene load_steps=29 format=3 uid="uid://cgucf5sllwmbu"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_6c4gb"]
 [ext_resource type="PackedScene" uid="uid://bp64p0jfplreu" path="res://scenes/Player.tscn" id="1_ewehu"]
@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://lcyxlx5ebbye" path="res://assets/audio/ForestRiver.mp3" id="25_f3i0e"]
 [ext_resource type="AudioStream" uid="uid://bbu6s86ky1wep" path="res://assets/audio/ForestSky.mp3" id="26_b6bhd"]
 [ext_resource type="PackedScene" uid="uid://copx7ojrx50dq" path="res://scenes/PauseMenu.tscn" id="27_rgrmu"]
+[ext_resource type="Texture2D" uid="uid://cnrg5jjt11yi2" path="res://assets/backgrounds/PauseButton.png" id="28_my872"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_6c4gb")
@@ -101,3 +102,14 @@ sky_music = ExtResource("26_b6bhd")
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="AudioManager"]
 
 [node name="CanvasLayer3" parent="." instance=ExtResource("27_rgrmu")]
+
+[node name="PauseButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(80, 80)
+offset_left = -639.0
+offset_right = -559.0
+offset_bottom = 80.0
+
+[node name="PauseButton2" type="Sprite2D" parent="PauseButton"]
+position = Vector2(39, 47)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("28_my872")

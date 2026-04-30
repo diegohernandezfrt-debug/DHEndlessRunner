@@ -115,12 +115,37 @@ func move_left():
 func move_right():
 	current_lane = min(lane_positions.size() - 1, current_lane + 1)
 
+var touch_start := Vector2.ZERO
+var min_swipe := 60
+var swipe_used := false
+
+
 func _input(event):
+
 	if event.is_action_pressed("ui_left"):
 		move_left()
-	
+
 	if event.is_action_pressed("ui_right"):
 		move_right()
+
+
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			touch_start = event.position
+			swipe_used = false
+
+
+	if event is InputEventScreenDrag and not swipe_used:
+		var delta = event.position - touch_start
+
+		if abs(delta.x) > min_swipe:
+
+			if delta.x > 0:
+				move_right()
+			else:
+				move_left()
+
+			swipe_used = true
 
 func blink_effect():
 	for i in range(5):
@@ -128,3 +153,4 @@ func blink_effect():
 		await get_tree().create_timer(0.1).timeout
 		visible = true
 		await get_tree().create_timer(0.1).timeout
+
