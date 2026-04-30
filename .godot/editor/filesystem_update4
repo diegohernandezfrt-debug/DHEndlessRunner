@@ -1,0 +1,7 @@
+res://scenes/Player.tscn
+res://scripts/Camera2D.gd
+res://scripts/spawner.gd
+res://scripts/Player.gd
+res://scenes/world.tscn
+res://scripts/world.gd
+res://scenes/VidasUI.tscn
